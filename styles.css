@@ -4,3 +4,20 @@
    justify-content: center;
    border-bottom: solid black;
 }
+.cell{
+    display: flex;
+    width: 100px;
+    height: 100px;
+    border: solid blue;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.grid{
+    text-align: center;
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    
+    margin: 20px auto;
+    width: max-content;
+}
