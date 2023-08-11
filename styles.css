@@ -17,15 +17,20 @@
     cursor: pointer;
     font-size: 34px;
 }
+.row{
+    display: flex;
+}
 .grid{
-    text-align: center;
-    display: grid;
-    grid-template-columns: 100px 100px 100px;
-    
-    margin: 20px auto;
-    width: max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .player{
     text-align: center;
 
+}
+.resetButton{
+    text-align: center;
+    margin-top: 20px;
 }
