@@ -38,6 +38,8 @@ function resetBoard(){
     for (let i = 0; i < cells.length; i++) {
         cells[i].innerText = "";
         board[Math.floor(i/3)][i%3] = 0;
+        player = "Player 1";
+        playerDisplay.innerText = player;
     }
 }
 
