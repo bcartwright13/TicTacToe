@@ -3,6 +3,7 @@ const cells = document.querySelectorAll(".cell");
 let player = "Player 1";
 const playerDisplay = document.querySelector(".player h1");
 playerDisplay.innerText = player;
+let gameOver = false;
 let board = [
     [0,0,0],
     [0,0,0],
@@ -10,6 +11,9 @@ let board = [
 ];
 for (let i = 0; i < cells.length; i++) {
     cells[i].onclick = function() {
+        if(gameOver){
+            return;
+        }
         if (!cells[i].innerText && player == "Player 1") {
             cells[i].innerText = "X";
             board[Math.floor(i/3)][i%3] = 1;
@@ -34,6 +38,7 @@ function resetBoard(){
         board[Math.floor(i/3)][i%3] = 0;
         player = "Player 1";
         playerDisplay.innerText = player;
+        gameOver = false;
     }
 };
 
@@ -61,9 +66,11 @@ function checkWin(){
         }
         if(counter1R == 3 || counter1C == 3){
             playerDisplay.innerText = "Player 1 Wins!";
+            gameOver = true;
             return true;
         }else if(counter2R == 3 || counter2C == 3){
             playerDisplay.innerText = "Player 2 Wins!";
+            gameOver = true;
             return true;
         }
     }
@@ -89,9 +96,12 @@ function checkWin(){
         c = c - 1;
         if(counter1L == 3 || counter1R == 3){
             playerDisplay.innerText = "Player 1 Wins!";
+            gameOver = true;
             return true;
+            
         }else if(counter2L == 3 || counter2R == 3){
             playerDisplay.innerText = "Player 2 Wins!";
+            gameOver = true;
             return true;
         }
 
@@ -100,6 +110,6 @@ function checkWin(){
 
     //check if board is filled to determine if draw
     if(boardFilled){
-        playerDisplay.innerText = "It's a draw";
+        playerDisplay.innerText = "It's a draw!";
     }
 };
